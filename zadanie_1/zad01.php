@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" href="css/daniel.css">
     <title>Zadanie 01</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>

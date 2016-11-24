@@ -1,0 +1,25 @@
+table{
+    border: 2px solid rgba(62, 62, 68, 0.89);
+}
+
+th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+td {
+    height: 20px;
+    vertical-align: bottom;
+    font-size: 90%;
+}
+
+th, td {
+    padding: 5px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+
+}
+
+tr:hover {
+    background-color: rgba(231, 161, 52, 0.89);
+}

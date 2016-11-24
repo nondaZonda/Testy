@@ -2,7 +2,7 @@
 <html lang="pl-PL">
 <head>
     <meta charset="UTF-8">
-    <title>Zadanie 02</title>
+    <title>Zadanie 03</title>
     <link type="text/css" rel="stylesheet" href="css/style.css">
 </head>
 <body>

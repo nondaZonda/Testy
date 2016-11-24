@@ -1,10 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: ituser
- * Date: 2016-06-09
- * Time: 13:42
- */
+
 function debug($var, $rodzaj = ''){
     switch ($rodzaj){
         case 'long':
