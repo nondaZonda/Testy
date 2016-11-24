@@ -8,7 +8,9 @@
 
 
 <?php
-
+/*
+ * Występuje błąd w funkcji. Podmienia wielokrotnie do tego samego klucza.
+ */
 
 @include ("functions.php");
 

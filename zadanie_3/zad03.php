@@ -62,7 +62,6 @@ function createNodeMap($parentId = 0){
         $fileName = $_POST['fileOption'];
         $filePath = $dir . $fileName;
         $handle = fopen($filePath, "r");
-        //debug($filePath);
         /*
          * Zrzut danych z pliku do tablicy
          */
@@ -96,9 +95,7 @@ function createNodeMap($parentId = 0){
             echo '</ul>';
         }
     }
-
-
-
+    
     ?>
 
 
