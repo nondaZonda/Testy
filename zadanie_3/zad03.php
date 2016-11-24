@@ -3,60 +3,110 @@
 <head>
     <meta charset="UTF-8">
     <title>Zadanie 02</title>
+    <link type="text/css" rel="stylesheet" href="css/style.css">
 </head>
 <body>
-
-
 <?php
 @include ("functions.php");
+$dataFromFile = array();
+$dir = "files/";
+$filesInDir = glob('files/*.csv');
 
+function createNodeMap($parentId = 0){
+    global $dataFromFile;
+    echo '<ul>';
+    //Wypisywanie głównych
+    foreach ($dataFromFile as $position){
+        if ($position['parent'] == $parentId){
+            
 
-function codeROT16($text){
-    $alphabet = array ('a','ą','b','c','ć','d','e','ę','f','g','h','i','j','k','l','ł','m','n','ń','o','ó','p','r','s','ś','t','u','w','y','z','ź','ż');
-    $lowerCaseText = strtolower($text);
-    $textArr = preg_split('//u', trim($lowerCaseText), -1, PREG_SPLIT_DELIM_CAPTURE);
-    $resultArr = [];
-
-    foreach ($textArr as $char){
-        if (is_int(array_search($char, $alphabet))){
-            array_push( $resultArr,  ($alphabet[((array_search($char, $alphabet) + 16 ) %32 )]));
-        }else{
-            array_push($resultArr, $char);
+            echo '<li>' . $position['name'];
+            createNodeMap($position['id']);
+            echo '</li>';
         }
+        //echo '</ul>';
     }
-    $result = implode($resultArr, '');
-    return $result;
+    echo '</ul>';
 }
 ?>
+<div>
+    <h2>Import danych z CSV</h2>
+    <h3>Wybierz plik:</h3>
+</div>
 
-
-<div id="main">
-    <form action="zad02.php" method="post">
-        <label for="textSent">Wpis tekst do zakodowania ROT16:</label>
-        </br>
-        <textarea rows="4" cols="50" name="textSent">
-            <?php
-            if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-                if (!empty($_POST['textSent'])){
-                    $text = $_POST['textSent'];
-                    echo $text;
-                }
-            }
-            ?>
-        </textarea>
-        </br>
-        <button type="submit">Koduj/Odkoduj</button>
-    </form>
-    <textarea rows="4" cols="50" name="textSent">
+<div id="clear">
+<form action="zad03.php" method="POST">
+    <select name="fileOption">
+        <option value="">Brak</option>
         <?php
-            if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-                if (!empty($_POST['textSent'])){
-                    $text = $_POST['textSent'];
-                    echo codeROT16($text);
+        foreach ($filesInDir as $fn){
+            echo '<option value="'. basename($fn) .'">'. basename($fn) .'</option>';
+        }
+        ?>
+    </select>
+    <button type="submit"><strong>Załaduj plik CSV</strong></button>
+</form>
+</div>
+<div id="main">
+    <?php
+
+
+    /*
+     * Wybór pliku do otwarcia
+     */
+
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        /*
+     * Otwarcie pliku z CSV
+     */
+        $fileName = $_POST['fileOption'];
+        $filePath = $dir . $fileName;
+        $handle = fopen($filePath, "r");
+        //debug($filePath);
+        /*
+         * Zrzut danych z pliku do tablicy
+         */
+        $counter = 0;
+        if ($handle != FALSE) {
+
+            $firstLine = TRUE;
+            while (($data = fgetcsv($handle, 1000, ";")) != FALSE) {
+                if ($firstLine == FALSE) {
+                    //opracowuję dane od drugiej linii z pliku źródłowego
+                    $dataFromFile[$counter] = [
+                        'id' => $data[0],
+                        'name' => $data[1],
+                        'parent' => $data[2],
+                    ];
+                    $counter++;
+                } else {
+                    //pierwsza linia danych z pliku
+                    $firstLine = FALSE;
                 }
             }
-        ?>
-    </textarea>
+        } else {
+            echo "<strong>Nie udało się otworzyć pliku!</strong>";
+        }
+//debug($dataFromFile);
+        /*
+         * Opracowanie danych z tablicy
+         */
+        if (isset($dataFromFile)) {
+            echo '<div id="menu">';
+            createNodeMap();
+            echo '</div>';
+        }
+    }
+
+
+
+
+
+
+
+    ?>
+
+
 </div>
 </body>
 </html>

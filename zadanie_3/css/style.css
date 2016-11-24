@@ -1,0 +1,47 @@
+ul {
+    list-style: none;
+}
+
+ul > li {
+    margin: 0;
+    padding: 5px;
+    float: left;
+    position: relative;
+    height: 30px;
+    width: 200px;
+    background-color: cornflowerblue;
+    border: 1px solid gray;
+}
+
+ul > li ul {
+    padding: 0;
+    position: absolute;
+    display: none;
+    left: 0;
+    top: 40px;
+    width: 200px;
+    text-align: left;
+    background-color: lightskyblue;
+    border: 1px solid gainsboro;
+}
+
+ul li:hover > ul {
+    display: block;
+}
+
+ul > li ul ul {
+    left: 210px;
+    top: 1px;
+}
+
+ul > li ul li {
+    padding: 5px;
+    display: block;
+}
+
+div #clear {
+    clear: both;
+}
+div #menu {
+    float: left;
+}
