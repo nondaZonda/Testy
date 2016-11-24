@@ -1,0 +1,13 @@
+Dana jest tablica $fabrics, gdzie kluczami s¹ symbole materia³ów (sk³adaj¹ce siê z jednej do trzech liter), a wartoœciami ich nazwy:
+
+$fabrics  - array ( 'B' => 'BAWE£NA', 'P' => 'POLIESTER', 'S' => 'SPANDEX', 'E' => 'ELASTAN', 'PO' => 'POLIAMID', 'EL' => 'ELASTAN', 'A' => 'AKRYL', 'AN' => 'ANGORA', 'NY' => 'NYLON', 'W' => 'WE£NA', 'WO' => 'WE£NA OWCZA', 'POL' => 'POLIWINYL', 'PVC' => 'PCV', 'SZJ' => 'SZTUCZNY JEDWAB', 'SK' => 'SKÓRA NATURALNA', 'POP' => 'POLIPROPYLEN'); 
+
+Sk³ad ubrania okreœla siê przy pomocy skrótu materia³u/materia³ów wraz z jego zawartoœci¹ w procentach. Przyk³adowe dane zosta³y umieszczone w tablicy Stextiles: 
+
+$textiles = array( 'B 100%', 'B 80%, P 20%', 'NY 70%, EL 30%', 'B 75%, S 20%', 'SZJ 80%, E 20%'); 
+
+Losujemy przyk³adowy materia³: $textile = $textiles[array_rand($textiles)]; 
+
+Przy pomocy jednego polecenia preg_replace() oraz korzystaj¹c jedynie z powy¿szych zmiennych, zmieniæ skrótow¹ zawartoœæ materia³u (zmienna $textile) na jego pe³n¹ nazwê (czyli zmieniamy np. ' B 80%, P 20%' na 'BAWE£NA 80%, POLIESTER 20%' ).
+
+Wyœwietliæ na ekranie obie wersje.

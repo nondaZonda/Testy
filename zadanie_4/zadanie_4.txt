@@ -1,0 +1,27 @@
+Dany jest plik csv: 
+Opona letnia;3;32,44
+G³oœnik niskotonowy;12;22.12 
+Radio samochodowe;2;155,32 
+Fotelik dzieciêcy;3;77
+Latarka;5;45,44
+Baga¿nik;2;342,2
+
+Proszê przygotowaæ stronê z formularzem, która umo¿liwi:
+•	wczytanie powy¿szego pliku csv do bazy danych
+•	wyœwietlenie aktualnej zawartoœci bazy danych (tabeli) 
+
+Za³o¿enia:
+•	plik csv ma zawsze poprawny format (danych nie trzeba sprawdzaæ)
+•	dane w pliku csv w kolejnych kolumnach to: ‘nazwa’;’iloœæ’;’wartoœæ’
+
+tabela prezentuj¹ca zawartoœæ bazy danych powinna byæ czytelnie sformatowana. 
+•	Powinna zawieraæ nazwy kolumn oraz liczbê porz¹dkow¹. Do sformatowania tabeli proszê u¿yæ zewnêtrznego pliku styli.
+•	plik csv proszê zakodowaæ w UTF-8
+•	na stronie nale¿y zadeklarowaæ kodowanie UTF-8 i w takim kodowaniu wyœwietlaæ dane
+•	strona powinna poprawnie dzia³aæ w PHP5 przy domyœlnych ustawieniach
+•	mo¿na skorzystaæ z bazy danych MySQL, PgSQL, SQLite. 
+
+
+Odes³ane rozwi¹zanie powinno zawieraæ:
+•	plik SQL (zrzut struktury bazy danych)
+•	pliki html, css oraz php realizuj¹ce zadanie

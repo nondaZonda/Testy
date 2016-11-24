@@ -1,0 +1,14 @@
+Polski alfabet sk³ada siê z 32 liter:
+
+a¹bcædeêfghijkl³mnñoóprsœtuwyzŸ¿
+
+Analogicznie do zasady dzia³ania kodowania ROT13 (funkcja str_rot13()), proszê stworzyæ funkcjê koduj¹c¹ ci¹g znaków zawieraj¹cy znaki z polskiego alfabetu, z rotacj¹ 16 znaków (ROT16). 
+
+Dzia³anie funkcji proszê pokazaæ na specjalnie w tym celu stworzonej stronie www z formularzem, w którym bêdzie mo¿na wstawiæ tekst do zakodowania/odkodowania. 
+
+Przyk³ad zasady dzia³ania ROT13 mo¿na znaleŸæ na stronie http://www.rot13.com. Operujemy wy³¹cznie w kodowaniu UTF-8.
+
+Nale¿y wykonac w PHP.
+
+Bonus:
+Wykonaæ w JS.
