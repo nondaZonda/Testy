@@ -14,20 +14,21 @@ $filesInDir = glob('files/*.csv');
 
 function createNodeMap($parentId = 0){
     global $dataFromFile;
-    echo '<ul>';
-    //Wypisywanie głównych
+    if ($parentId != 0){
+        echo '<ul>';
+    }
     foreach ($dataFromFile as $position){
         if ($position['parent'] == $parentId){
-            
-
             echo '<li>' . $position['name'];
             createNodeMap($position['id']);
             echo '</li>';
         }
-        //echo '</ul>';
     }
-    echo '</ul>';
+    if ($parentId != 0){
+        echo '</ul>';
+    }
 }
+
 ?>
 <div>
     <h2>Import danych z CSV</h2>
@@ -49,7 +50,6 @@ function createNodeMap($parentId = 0){
 </div>
 <div id="main">
     <?php
-
 
     /*
      * Wybór pliku do otwarcia
@@ -87,20 +87,15 @@ function createNodeMap($parentId = 0){
         } else {
             echo "<strong>Nie udało się otworzyć pliku!</strong>";
         }
-//debug($dataFromFile);
         /*
          * Opracowanie danych z tablicy
          */
         if (isset($dataFromFile)) {
-            echo '<div id="menu">';
+            echo '<ul id="mainmenu">';
             createNodeMap();
-            echo '</div>';
+            echo '</ul>';
         }
     }
-
-
-
-
 
 
 
